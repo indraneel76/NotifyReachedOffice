@@ -32,3 +32,19 @@ The device will have 3 Led lights and buzzer (for alarm)
 
 ![rough image diagram](rough-device-sketch.png)
 
+## Sequence of building the solution
+1. IFTTT mobile app installed and configured for location based trigger and webhook service action 
+
+[Android play store link](https://play.google.com/store/apps/details?id=com.ifttt.ifttt&hl=en_IN)
+
+[Apple App Store link](https://apps.apple.com/in/app/ifttt-automate-work-and-home/id660944635)
+
+2. Build AWS lambda webhook
+3. Integrating Webhook lambda with AWS IOT HUB .We would also have to create AWS IOT device for the same.
+4. Building Arduino Gadget 
+4.1 Wiring and conneecting various components
+4.2 Writing Arduino code for integrating Arduino gadget and AWS IOT Hub and functionality. 
+
+
+
+
