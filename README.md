@@ -29,3 +29,6 @@ The device will have 3 Led lights and buzzer (for alarm)
 - Led - Red - Left office
 - Led - Blue - Reached Home
 
+
+![rough image diagram](rough-device-sketch.png)
+
