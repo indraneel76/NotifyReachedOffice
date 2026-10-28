@@ -39,7 +39,26 @@ The device will have 3 Led lights and buzzer (for alarm)
 
 [Apple App Store link](https://apps.apple.com/in/app/ifttt-automate-work-and-home/id660944635)
 
-2. Build AWS lambda webhook
+2. Build AWS lambda webhook.
+
+- Go to aws console and choose lamba service and click on create Event function
+- Select author from scratch
+- Function name as "NotifyReachedOffice"
+- Runtime as python
+- Click on create Event function button
+- Paste the content inside code from webhook-lambda-notify-reached-office.py
+- Click on deploy
+- Click on configuration tab
+- Click on triggers side nav
+- Click on add Trigger and select API Gateway
+- API type HTTP API
+- Security Open
+- CLick on Add
+- Note down the API Gateway URL
+- update the webhook URL of IFTTT with this URL
+
+- <TBD for NotifyExitOffice>
+
 3. Integrating Webhook lambda with AWS IOT HUB .We would also have to create AWS IOT device for the same.
 4. Building Arduino Gadget 
 4.1 Wiring and conneecting various components
