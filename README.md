@@ -39,7 +39,21 @@ The device will have 3 Led lights and buzzer (for alarm)
 
 [Apple App Store link](https://apps.apple.com/in/app/ifttt-automate-work-and-home/id660944635)
 
-2. Build AWS lambda webhook.
+
+2. Integrating Webhook lambda with AWS IOT HUB .We would also have to create AWS IOT device for the same.
+
+- Go to IOT core service
+- Click on "All devices" on the left nav
+- Click on Things
+- Click on create Things button
+- Choose "Create single Thing"
+- Give name "notifyReachedOfficeDevicce"
+- Choose "Unnamed shadow" and click on next
+- Select "Auto-generate a new certificate (recommended)"
+- Click on "create Thing"
+- Click on "download All certificate" and store in a folder
+
+3. Build AWS lambda webhook.
 
 - Go to aws console and choose lamba service and click on create Event function
 - Select author from scratch
@@ -49,6 +63,7 @@ The device will have 3 Led lights and buzzer (for alarm)
 - Paste the content inside code from webhook-lambda-notify-reached-office.py
 - Click on deploy
 - Click on configuration tab
+- Click on Environmental Variable , click on edit and click on add 
 - Click on triggers side nav
 - Click on add Trigger and select API Gateway
 - API type HTTP API
@@ -56,13 +71,24 @@ The device will have 3 Led lights and buzzer (for alarm)
 - CLick on Add
 - Note down the API Gateway URL
 - update the webhook URL of IFTTT with this URL
+- We need to know the IOT_DATA_ENDPOINT variable . run  aws iot describe-endpoint --endpoint-type iot:Data-ATS --region ap-south-1
 
-- <TBD for NotifyExitOffice>
+- Go to configuration -> Environmental variable and set the IOT_DATA_ENDPOINT variable as https://<the IOT data end point value you have earlier got> . it would be something like https://xxxxxx-ats.iot.ap-south-1.amazonaws.com
+- Add permission to lambda for accessing IOT
+- Click on general configuration. Edit and add role. paste the role as shown in the file Lambda_iot_permission
 
-3. Integrating Webhook lambda with AWS IOT HUB .We would also have to create AWS IOT device for the same.
-4. Building Arduino Gadget 
-4.1 Wiring and conneecting various components
-4.2 Writing Arduino code for integrating Arduino gadget and AWS IOT Hub and functionality. 
+4. Configure IFTTT with correct Trigger
+4.1  Open the IFTTT app you have installed.
+4.2 Click on Create Applet . Choose classic tab . 
+4.3 click add button for "if this section"
+4.4 Choose service as location. Enter any area and choose your location and click on create trigger
+4.5. Under "Then that" section click add choose webhook and select make a web request .paste the API gateway URL you have earlier created and add query parameter ?office=entered
+4.6. Repeat the same stuff and create another applet for exit scenario and this time change the query parameter to ?office=exit
+
+
+5. Building Arduino Gadget 
+5.1 Wiring and conneecting various components
+5.2 Writing Arduino code for integrating Arduino gadget and AWS IOT Hub and functionality. 
 
 
 
