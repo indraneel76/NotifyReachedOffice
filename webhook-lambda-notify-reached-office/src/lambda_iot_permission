@@ -2,13 +2,13 @@
 	"Version": "2012-10-17",
 	"Statement": [
 		{
+			"Sid": "VisualEditor0",
 			"Effect": "Allow",
 			"Action": [
-				"iot:UpdateThingShadow"
+				"iot:Subscribe",
+				"iot:Publish"
 			],
-			"Resource": [
-				"arn:aws:iot:ap-south-1:<accountNo>:thing/notifyReachedOfficeDevicce"
-			]
+			"Resource": "*"
 		}
 	]
 }
