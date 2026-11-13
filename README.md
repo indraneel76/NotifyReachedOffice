@@ -77,14 +77,18 @@ The device will have 3 Led lights and buzzer (for alarm)
 - Add permission to lambda for accessing IOT
 - Click on general configuration. Edit and add role. paste the role as shown in the file Lambda_iot_permission
 
-4. Configure IFTTT with correct Trigger
+4.a Configure IFTTT with Trigger for Entering office
 4.1  Open the IFTTT app you have installed.
 4.2 Click on Create Applet . Choose classic tab . 
 4.3 click add button for "if this section"
 4.4 Choose service as location. Enter any area and choose your location and click on create trigger
-4.5. Under "Then that" section click add choose webhook and select make a web request .paste the API gateway URL you have earlier created and add query parameter ?office=entered
-4.6. Repeat the same stuff and create another applet for exit scenario and this time change the query parameter to ?office=exit
+4.5. Under "Then that" section click add choose webhook and select make a web request .paste the API gateway URL you have earlier created and add query parameter ?office=entered & thing=notifyReachedOfficeDevicce  You url should look like https"//xxxx.execute-api-ap-south-1.amazonaws.com/default/NotifyReachedOffice?office=entered&thing=notifyReachedOfficeDevicce
 
+4.b Open the IFTTT app you have installed.
+4.2 Click on Create Applet . Choose classic tab . 
+4.3 click add button for "if this section"
+4.4 Choose service as location. Exit any area and choose your location and click on create trigger
+4.5. Under "Then that" section click add choose webhook and select make a web request .paste the API gateway URL you have earlier created and add query parameter ?office=exit & thing=notifyReachedOfficeDevicce  You url should look like https"//xxxx.execute-api-ap-south-1.amazonaws.com/default/NotifyReachedOffice?office=exit&thing=notifyReachedOfficeDevicce
 
 5. Building Arduino Gadget 
 5.1 Wiring and conneecting various components
