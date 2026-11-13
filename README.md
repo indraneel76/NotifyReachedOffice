@@ -112,6 +112,9 @@ The device will have 3 Led lights and buzzer (for alarm)
 When you move the office , the device green LED would light up. When you move out of office red LED would glow. 
 - 
 
+![Device Inside Image](device_inside.jpg)
+![Device Outside Image](device_outside.jpg)
+
 
 
 
