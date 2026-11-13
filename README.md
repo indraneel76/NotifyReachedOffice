@@ -75,7 +75,7 @@ The device will have 3 Led lights and buzzer (for alarm)
 
 - Go to configuration -> Environmental variable and set the IOT_DATA_ENDPOINT variable as https://<the IOT data end point value you have earlier got> . it would be something like https://xxxxxx-ats.iot.ap-south-1.amazonaws.com
 - Add permission to lambda for accessing IOT
-- Click on general configuration. Edit and add role. paste the role as shown in the file Lambda_iot_permission
+- Click on general configuration. Edit the existing role and add permission. paste the json as shown in the file Lambda_iot_permission
 
 4.a Configure IFTTT with Trigger for Entering office
 4.1  Open the IFTTT app you have installed.
@@ -90,9 +90,27 @@ The device will have 3 Led lights and buzzer (for alarm)
 4.4 Choose service as location. Exit any area and choose your location and click on create trigger
 4.5. Under "Then that" section click add choose webhook and select make a web request .paste the API gateway URL you have earlier created and add query parameter ?office=exit & thing=notifyReachedOfficeDevicce  You url should look like https"//xxxx.execute-api-ap-south-1.amazonaws.com/default/NotifyReachedOffice?office=exit&thing=notifyReachedOfficeDevicce
 
-5. Building Arduino Gadget 
-5.1 Wiring and conneecting various components
+5. Building Arduino Gadget
+- Buy a [ESP8266 NodeMCU](https://amzn.in/d/0fk3vgym) 
+
+
+5.1 Wiring and connecting various components
+- Look at the ![Wiring](Wiring-notifyReachedOfficeDeviceNodeMCU_bb.png)
+
+- You can also install Fritzing and open the file Wiring-notifyReachedOfficeDeviceNodeMCU.fzz. You can get Fritzing software https://fritzing.org/
+
+
 5.2 Writing Arduino code for integrating Arduino gadget and AWS IOT Hub and functionality. 
+- Install Arduino SDK in your laptop (https://support.arduino.cc/hc/en-us/articles/360019833020-Download-and-install-Arduino-IDE)
+- Open the folder notifyReachedOfficeDeviceArduino/src/notifyReachedOfficeDeviceArduino\src\notifyReachedOfficeNodeMcu_sketch
+- update the secret.h file
+
+- Flash the code into ESP8266 Node MCU.
+
+6.0 Testing the device.
+
+When you move the office , the device green LED would light up. When you move out of office red LED would glow. 
+- 
 
 
 
